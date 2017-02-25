@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clock</title>
+      
+    
+      <style>
+          body{
+              background-image: url(Elegant_Background-9.jpg);
+                  background-attachment: fixed;
+              background-position: center;
+              background-size: cover;
+          }
+          .clock-face {
+    border-radius: 50%;
+    border: 10px solid rgba(242, 19, 19, 0.82);
+    height: 300px;
+    width: 300px;
+}
+
+.clock {
+    margin: 130px 530px auto;
+}
+
+.hand {
+    height: 6px;
+    width: 120px;
+    background-color: hsla(60, 87%, 65%, 0.81);
+    position: absolute;
+    margin: 146px 0px 0px 25px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(.56, 1.72, .62, 2.04);
+}
+          
+      /*    @media only screen and (min-width: 400px) {
+    body{
+              background-image: url(Elegant_Background-9.jpg);
+                  background-attachment: fixed;
+              background-position: center;
+              background-size: cover;
+          }
+          .clock-face {
+    border-radius: 50%;
+    border: 15px solid rgba(242, 19, 19, 0.82);
+    height: 400px;
+    width: 400px;
+}
+
+.clock {
+    margin: 500px 250px auto;
+}
+
+.hand {
+    height: 10px;
+    width: 120px;
+    background-color: hsla(60, 87%, 65%, 0.81);
+    position: absolute;
+    margin: 146px 0px 0px 25px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(.56, 1.72, .62, 2.04);
+}
+          
+}
+          
+        */  
+      </style>
+
+
+    
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand" id=" hand-hr">
+
+        </div>
+        <div class="hand " id="minut">
+
+        </div>
+        <div class="hand " id="second-hand">
+
+        </div>
+      </div>
+    </div>
+<script >
+  const sec = document.getElementById('second-hand');
+    const mint=document.getElementById('minut');
+    const hr=document.getElementById(' hand-hr');
+
+  function setDate() {
+      const now = new Date();
+    
+      const seconds = now.getSeconds();
+      const secondhand = ((seconds / 60) * 360) + 90;
+      sec.style.transform = 'rotate('+secondhand+'deg)';
+      
+      const minuts = now.getMinutes();
+      const minuthand = ((minuts/60)*360)+90;
+      mint.style.transform = 'rotate('+minuthand+'deg)';
+      console.log('minuts');
+       
+      const hour = now.getHours();
+      const hourhand = ((hour/12)*360)+90;
+      hr.style.transform = 'rotate('+ hourhand+'deg)';
+      
+      console.log('hour');
+
+     
+
+  }   
+  setInterval(setDate, 1000);
+
+
+</script>
+  </body>
+</html>
